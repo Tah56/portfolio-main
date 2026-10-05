@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "Web Developer",
     "Tanzim Ahmed",
   ],
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({

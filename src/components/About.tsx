@@ -1,15 +1,14 @@
+"use client";
+
+import { MotionFadeUp, MotionSectionHeader } from "@/components/motion";
+
 export default function About() {
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-indigo-500 mx-auto rounded-full" />
-        </div>
+        <MotionSectionHeader title="About Me" />
 
-        <div className="bg-slate-800/60 rounded-2xl p-6 sm:p-10 border border-slate-700/50 shadow-xl">
+        <MotionFadeUp className="bg-slate-800/60 rounded-2xl p-6 sm:p-10 border border-slate-700/50 shadow-xl">
           <div className="prose prose-invert max-w-none">
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
               My programming journey started when I first opened a code editor
@@ -44,7 +43,7 @@ export default function About() {
               contribute, I would love to connect.
             </p>
           </div>
-        </div>
+        </MotionFadeUp>
       </div>
     </section>
   );

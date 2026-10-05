@@ -1,4 +1,12 @@
+"use client";
+
 import { FaGraduationCap, FaUniversity } from "react-icons/fa";
+import {
+  motion,
+  MotionItem,
+  MotionSectionHeader,
+  MotionStagger,
+} from "@/components/motion";
 
 const education = [
   {
@@ -21,30 +29,42 @@ export default function Education() {
   return (
     <section id="education" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            Education
-          </h2>
-          <div className="w-20 h-1 bg-indigo-500 mx-auto rounded-full" />
-        </div>
+        <MotionSectionHeader title="Education" />
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-700 -translate-x-1/2" />
+          <motion.div
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-700 -translate-x-1/2 origin-top"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          />
 
-          <div className="space-y-10">
+          <MotionStagger className="space-y-10">
             {education.map((edu, index) => (
-              <div
+              <MotionItem
                 key={edu.degree}
                 className={`relative flex flex-col md:flex-row items-center gap-6 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Dot */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-slate-900 z-10" />
+                <motion.div
+                  className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-slate-900 z-10"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
+                />
 
                 <div className="w-full md:w-[calc(50%-2rem)]">
-                  <div className="bg-slate-800/70 rounded-2xl p-6 border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                  <motion.div
+                    className="bg-slate-800/70 rounded-2xl p-6 border border-slate-700/50"
+                    whileHover={{
+                      y: -4,
+                      borderColor: "rgba(99, 102, 241, 0.3)",
+                      transition: { duration: 0.25 },
+                    }}
+                  >
                     <div className="flex items-start gap-3 mb-3">
                       <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
                         <FaGraduationCap size={20} />
@@ -65,14 +85,13 @@ export default function Education() {
                     <p className="text-slate-300 text-sm leading-relaxed">
                       {edu.details}
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
 
-                {/* Spacer for alternating layout */}
                 <div className="hidden md:block w-[calc(50%-2rem)]" />
-              </div>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </div>
     </section>

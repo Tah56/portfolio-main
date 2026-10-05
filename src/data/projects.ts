@@ -13,6 +13,34 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "edunexus",
+    name: "EduNexus",
+    shortDescription:
+      "A team-built school management platform connecting administrators, teachers, students, and parents in one digital ecosystem.",
+    image: "/edunexus.png",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Express.js",
+      "MongoDB",
+      "Prisma",
+      "Better Auth",
+    ],
+    description:
+      "EduNexus is a team project: a school management platform designed to simplify administration and support academic engagement. It brings together tools for school operations, student progress, attendance, courses, and communication, with dedicated access points for administrators, teachers, and students. The application is built with Next.js and TypeScript, backed by an Express.js API and MongoDB with Prisma, and uses Better Auth for authentication.",
+    liveLink: "https://school-management-system-psi-ten.vercel.app/",
+    githubLink: "",
+    challenges: [
+      "Collaborating as a team to build and connect the frontend, API, data layer, and authentication.",
+      "Bringing the needs of administrators, teachers, students, and parents together in one clear experience.",
+      "Presenting school operations and student learning progress through an easy-to-understand dashboard.",
+    ],
+    improvements: [
+      "Add more detailed reporting and analytics for school administrators.",
+      "Expand the connected workflows available to teachers, students, and parents.",
+    ],
+  },
+  {
     id: "loop-market",
     name: "Loop Market",
     shortDescription:
